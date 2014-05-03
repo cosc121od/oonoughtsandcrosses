@@ -1,4 +1,4 @@
 oonoughtsandcrosses
 ===================
 
-An OO implementation of noughts and crosses
+An OO implementation of noughts and crosses. Easties Rule!
