@@ -1,4 +1,4 @@
 oonoughtsandcrosses
 ===================
 
-An OO implementation of noughts and crosses
+The Wise Westies' OO implementation of noughts and crosses.
