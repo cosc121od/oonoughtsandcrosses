@@ -5,5 +5,5 @@ class Board(object):
     for i in range(dimx):
         temp = []
         for j in range(dimy):
-            temp.append(' ')
+            temp.append('')
         grid.append(temp)
