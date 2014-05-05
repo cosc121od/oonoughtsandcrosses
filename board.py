@@ -25,3 +25,12 @@ class Board(object):
     def is_free(self, xytuple):
         'returns true if the position Xytuple on the grid is free'
         return self.grid[y][x] == ''
+    
+    def is_triple(self, xytuple):
+        'returns true if there is a triple intersecting x,y. To be used after set_point'
+        pass
+    
+    def reset(self):
+        'resets the board'
+        self.grid = []
+        self.__init__()
