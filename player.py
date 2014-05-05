@@ -1,3 +1,5 @@
 '''The implementation of the player class'''
 class Player(object):
-    pass
+    
+    def __init__(self, name, piece):
+        
