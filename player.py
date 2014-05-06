@@ -5,7 +5,7 @@ class Player(object):
         self.name = name
         self.piece = piece
         
-    def get_move():
+    def get_move(self):
         row = int(input())
         column = int(input())
         x_y = row,column
