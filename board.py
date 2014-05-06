@@ -60,7 +60,7 @@ class Board(object):
         for i in range(dimx):
             if self.grid[i][i] != self.grid[0][0]:
                 diag_win = False
-            if self.grid[i][self.dimx-1-i] != self.grid[dimx][0]
+            if self.grid[i][self.dimx-1-i] != self.grid[dimx][0]:
                 diag_win = False
         if diag_win:
             return 'WIN'
