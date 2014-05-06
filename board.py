@@ -38,7 +38,11 @@ class Board(object):
     
     def get_game_state(self):
         'Does shit get off my back'
-        pass
+        for i in range(dimx):
+            row_win = True
+            for j in range(1, dimy):
+                
+        
     
     def reset(self):
         'resets the board'
