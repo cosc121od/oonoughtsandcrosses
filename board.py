@@ -4,7 +4,7 @@ class Board(object):
     def __init__(self):
         self.dimx = 3
         self.dimy = 3
-        self.grid = [['' for i in range(dimy)] for i in range(dimx)]
+        self.grid = [['' for i in range(self.dimy)] for i in range(self.dimx)]
     
     
     def __str__(self):
@@ -38,18 +38,18 @@ class Board(object):
     
     def get_game_state(self):
         """returns 'WIN', 'DRAW', 'PLAYING'"""
-        for i in range(dimx):
+        for i in range(self.dimx):
             row_win = True
-            for j in range(1, dimy):
+            for j in range(1, self.dimy):
                 if self.grid[i][j] != self.grid[0][i]:
                     row_win = False
             if row_win:
                 return 'WIN'
             
         
-        for j in range(dimy):
+        for j in range(self.dimy):
             row_win = True
-            for i in range(1, dimx):
+            for i in range(1, self.dimx):
                 if self.grid[i][j] != self.grid[j][0]:
                     row_win = False
             if row_win:
@@ -57,10 +57,10 @@ class Board(object):
                 
         diag_win = True
 
-        for i in range(dimx):
+        for i in range(self.dimx):
             if self.grid[i][i] != self.grid[0][0]:
                 diag_win = False
-            if self.grid[i][self.dimx-1-i] != self.grid[dimx][0]:
+            if self.grid[i][self.dimx-1-i] != self.grid[self.dimx][0]:
                 diag_win = False
         if diag_win:
             return 'WIN'
