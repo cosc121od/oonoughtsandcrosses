@@ -2,7 +2,6 @@
    Simply imports the required classes and plays one game.'''
 
 from game import Game
-from board import Board
 from player import Player
 
 def main():
