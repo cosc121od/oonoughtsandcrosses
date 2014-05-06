@@ -54,6 +54,24 @@ class Board(object):
                     row_win = False
             if row_win:
                 return 'WIN'        
+                
+        diag_win = True
+
+        for i in range(dimx):
+            if self.grid[i][i] != self.grid[0][0]:
+                diag_win = False
+            if self.grid[i][self.dimx-1-i] != self.grid[dimx][0]
+                diag_win = False
+        if diag_win:
+            return 'WIN'
+        
+        
+        for col in self.grid:
+            for value in col:
+                if col == '':
+                    return 'PLAYING'
+        
+        return 'DRAW'
         
     
     def reset(self):
