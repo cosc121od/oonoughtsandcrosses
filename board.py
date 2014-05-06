@@ -37,11 +37,23 @@ class Board(object):
         return self.grid[y][x] == ''
     
     def get_game_state(self):
-        'Does shit get off my back'
+        """returns 'WIN', 'DRAW', 'PLAYING'"""
         for i in range(dimx):
             row_win = True
             for j in range(1, dimy):
-                
+                if self.grid[i][j] != self.grid[0][i]:
+                    row_win = False
+            if row_win:
+                return 'WIN'
+            
+        
+        for j in range(dimy):
+            row_win = True
+            for i in range(1, dimx):
+                if self.grid[i][j] != self.grid[j][0]:
+                    row_win = False
+            if row_win:
+                return 'WIN'        
         
     
     def reset(self):
