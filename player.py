@@ -1,4 +1,7 @@
 '''The implementation of the player class'''
+import webbrowser
+
+
 class Player(object):
     def __init__(self, name, piece):
         self.name = name
@@ -6,7 +9,9 @@ class Player(object):
         
     def get_move(self):
         move = input("What is your move "+self.name+'? ').lower()
-        
+        if move == '42':
+            webbrowser.open('http://heyyeyaaeyaaaeyaeyaa.com')
+            
         while True:
             
             if self.move_good(move):
