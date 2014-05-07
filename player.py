@@ -41,5 +41,6 @@ class Player(object):
             
     def __str__(self):
         return self.name
-    def get_peice(self):
+    
+    def get_piece(self):
         return self.piece

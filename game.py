@@ -9,7 +9,8 @@ class Game(object):
     
     def play(self):
         self.current_player = self.player2
-        while (not is_game_over):
+        print(self.board.get_game_state())
+        while (not self.is_game_over()):
             self.next_player()
             move = self.current_player.get_move()
             piece = self.current_player.get_piece()

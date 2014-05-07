@@ -26,6 +26,7 @@ class Board(object):
         'sets X or O at a point on the board'
         x, y = xytuple
         self.grid[y][x] = value
+        self.print_grid()
     
     def get_point(self, xytuple):
         'gets X or O from a point on the board'
@@ -38,37 +39,45 @@ class Board(object):
     
     def get_game_state(self):
         """returns 'WIN', 'DRAW', 'PLAYING'"""
-        for i in range(self.dimx):
+        for x in range(self.dimx):
             row_win = True
-            for j in range(1, self.dimy):
-                if self.grid[i][j] != self.grid[0][i]:
-                    row_win = False
-            if row_win:
-                return 'WIN'
+            if self.grid[x][0] != '':
+                for y in range(1, self.dimy):
+                    if self.grid[x][y] != self.grid[x][0]:
+                        row_win = False
+                if row_win:
+                    return 'WIN'                
             
         
-        for j in range(self.dimy):
+        for y in range(self.dimy):
             row_win = True
-            for i in range(1, self.dimx):
-                if self.grid[i][j] != self.grid[j][0]:
-                    row_win = False
-            if row_win:
-                return 'WIN'        
+            if self.grid[0][y] != '':
+                for x in range(1, self.dimx):
+                    if self.grid[x][y] != self.grid[0][y]:
+                        row_win = False
+                if row_win:
+                    return 'WIN'        
                 
         diag_win = True
 
-        for i in range(self.dimx):
-            if self.grid[i][i] != self.grid[0][0]:
-                diag_win = False
-            if self.grid[i][self.dimx-1-i] != self.grid[self.dimx][0]:
-                diag_win = False
+        if self.grid[0][0] != '':
+            for i in range(self.dimx):
+                if self.grid[i][i] != self.grid[0][0]:
+                    diag_win = False
+        elif self.grid[self.dimx-1][0] != '':
+            for i in range(self.dimx):
+                if self.grid[i][self.dimy-1-i] != self.grid[self.dimx-1][0]:
+                    diag_win = False
+        else:
+            diag_win = False
+        
         if diag_win:
             return 'WIN'
         
         
         for col in self.grid:
             for value in col:
-                if col == '':
+                if value == '':
                     return 'PLAYING'
         
         return 'DRAW'
@@ -78,3 +87,14 @@ class Board(object):
         'resets the board'
         self.grid = []
         self.__init__()
+
+
+    def print_grid(self):
+        for y in range(self.dimy):
+            line = ''
+            for x in range(self.dimx):
+                value = self.grid[x][y]
+                if value == '':
+                    value = '-'
+                line += value
+            print(line)
