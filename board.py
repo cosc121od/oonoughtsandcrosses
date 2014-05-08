@@ -31,11 +31,15 @@ class Board(object):
         
     def display(self):
         """Display the board"""
-        for line in self.board:
-            print('|', end='')
-            for cell in line:
-                print(cell + '|', end='')
-            print()
+        for row in range(0,3):
+            for col in range(0,3):
+                if col == 0:
+                    print(" " + self.board[row][col], end='')
+                else:
+                    print(" | " + self.board[row][col], end='')
+            if row != 2:
+                print ("\n---+---+---\n", end='')
+        print("\n")
             
     def line(self, num):
         """Return a list representing the line numbered from 0 to 7
@@ -56,3 +60,4 @@ class Board(object):
             for i in range(3):
                 line.append(self.board[i][2-i])
         return line
+    
