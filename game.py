@@ -1,3 +1,4 @@
+from board import Board
 class Game(object):
     
     def __init__(self, player1, player2):
