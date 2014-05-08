@@ -35,6 +35,7 @@ class Board(object):
     
     def is_free(self, xytuple):
         'returns true if the position Xytuple on the grid is free'
+        x, y = xytuple
         return self.grid[y][x] == ''
     
     def get_game_state(self):
