@@ -1,9 +1,7 @@
 '''The implementation of the board class'''
 
-
 class Board(object):
     """Class representing a board object in a game of naughts in crosses"""
-    
     EMPTY_BOARD = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']]
     ROWS = [0,1,2]
     COLUMNS = [3,4,5]
@@ -61,3 +59,11 @@ class Board(object):
                 line.append(self.board[i][2-i])
         return line
     
+    
+    def is_full(self):
+        is_full = True
+        for row in self.board:
+            for col in row:
+                if col == '-':
+                    is_full = False
+        return is_full
