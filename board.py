@@ -96,5 +96,5 @@ class Board(object):
                 value = self.grid[x][y]
                 if value == '':
                     value = '-'
-                line += value
+                line += value + ' '
             print(line)
