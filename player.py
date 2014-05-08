@@ -1,4 +1,3 @@
-'''The implementation of the player class'''
 class Player(object):
     
     def __init__(self, name, piece):
@@ -6,7 +5,15 @@ class Player(object):
         self.piece = piece
         
     def get_move(self):
-        row = int(input())
-        column = int(input())
-        x_y = row,column
-        return x_y
+        valid = False
+        while valid == False:
+            valid = True
+            row = int(input('{} what row do you want to place your {}?  '.
+                            format(self.name, self.piece)))
+            col = int(input('{} what column do you want to place your {} ?'.
+                            format(self.name, self.piece)))
+            if row > 2 or col > 2:
+                print('{} your row or column must be a number between 0 and 2 inclusive'.
+                      format(self.name, self.piece))
+                valid = False
+        return (row,col)
