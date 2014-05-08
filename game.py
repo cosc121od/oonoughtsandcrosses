@@ -15,7 +15,7 @@ class Game(object):
             moved = False
             while (not moved):
                 moved = self.request_move()
-            print('\n' + self.board + '\n')
+            print('\n' + str(self.board) + '\n')
         print('Game over man! Game over!')
         self.announce_winner()
     
@@ -25,6 +25,7 @@ class Game(object):
             piece = self.current_player.get_piece()
             self.board.set_point(move, piece)
             return True
+        print('That space is taken!')
         return False
     
     def is_game_over(self):
