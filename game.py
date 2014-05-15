@@ -28,7 +28,10 @@ class Game(object):
                 self.board.set_token(move, self.player2.piece)
             gameover = self.gameover()
             self.board.display()
-        print (self.winner())
+        if self.is_draw() == False:
+            print (self.winner())
+        else:
+            print("Draw")
             
     def gameover(self):
         is_won = self.is_won()
