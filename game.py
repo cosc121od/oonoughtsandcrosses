@@ -1,6 +1,5 @@
-from board import Board
-
 class Game(object):
+<<<<<<< HEAD
 
     def __init__(self, player1, player2):
         self.player1 = player1
@@ -41,3 +40,7 @@ class Game(object):
             print('It was a draw.')
         else:
             print('The winner is {}.'.format(self.winner()))
+=======
+    pass 
+     
+>>>>>>> 2f89338b869d2aa9fabb927a007adc9decf32ff3
