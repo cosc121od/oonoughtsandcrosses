@@ -6,16 +6,26 @@ class Game(object):
         self.player2 = player2
         self.board = Board()
     
-    def play(self):
+    def play(self, window):
         self.current_player = self.player2
         print(self.board.get_game_state())
         while (not self.is_game_over()):
             self.next_player()
-            move = self.current_player.get_move()
+            moved = False
+            while (not moved):
+                moved = self.request_move()
+            print('\n' + str(self.board) + '\n')
+        print('Game over man! Game over!')
+        self.announce_winner()
+    
+    def request_move(self):
+        move = self.current_player.get_move()
+        if (self.board.is_free(move)):
             piece = self.current_player.get_piece()
             self.board.set_point(move, piece)
-        print('Game over!')
-        self.announce_winner()
+            return True
+        print('That space is taken!')
+        return False
     
     def is_game_over(self):
         return self.is_won() or self.is_draw()

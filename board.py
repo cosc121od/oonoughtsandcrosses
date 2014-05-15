@@ -13,6 +13,7 @@ class Board(object):
             line = ''
             for i in range(self.dimx):
                 line += self.grid[i][j]
+                if not self.grid[i][j]: line += ' '
                 if i != self.dimx-1: line += '|'
             output += line + '\n'
             if j != self.dimy-1:
@@ -26,7 +27,6 @@ class Board(object):
         'sets X or O at a point on the board'
         x, y = xytuple
         self.grid[y][x] = value
-        self.print_grid()
     
     def get_point(self, xytuple):
         'gets X or O from a point on the board'
@@ -35,6 +35,7 @@ class Board(object):
     
     def is_free(self, xytuple):
         'returns true if the position Xytuple on the grid is free'
+        x, y = xytuple
         return self.grid[y][x] == ''
     
     def get_game_state(self):
@@ -87,14 +88,3 @@ class Board(object):
         'resets the board'
         self.grid = []
         self.__init__()
-
-
-    def print_grid(self):
-        for y in range(self.dimy):
-            line = ''
-            for x in range(self.dimx):
-                value = self.grid[x][y]
-                if value == '':
-                    value = '-'
-                line += value
-            print(line)

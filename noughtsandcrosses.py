@@ -3,11 +3,16 @@
 
 from game import Game
 from player import Player
+from render import Render
+
+window = Tk()
 
 def main():
     '''The main function. Every home should have one'''
     player1 = Player('Angus', 'X')
     player2 = Player('Zelda', 'O')
-    Game(player1, player2).play()
+    Game(player1, player2).play(window)
+
+
 
 main()
