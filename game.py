@@ -7,7 +7,7 @@ class Game(object):
         self.player2 = player2
         self.board = Board()
     
-    def play(self):
+    def play(self, window):
         self.current_player = self.player2
         print(self.board.get_game_state())
         while (not self.is_game_over()):
